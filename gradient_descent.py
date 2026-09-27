@@ -47,8 +47,8 @@ def batch_gradient_descent(X, y, w_init, b_init, lr, epochs):
         b = b - (lr * dj_db)
         J = compute_cost(X, y, w, b)
         history.append((i, J, w, b))
-        #if i % 100 == 0:
-            #print(f'Epoch: {i} | w: {w:.4e} | b: {b:.4e} | cost: {J:.4f}')
+        if i % 100 == 0:
+            print(f'Epoch: {i} | w: {w:.4e} | b: {b:.4e} | cost: {J:.4f}')
     return w, b, history
  
 X_train_np = X_train.to_numpy().reshape(-1)
@@ -68,8 +68,8 @@ Costs = [cost for epoch, cost, weight, bias in history]
 Weights = [weight for epoch, cost, weight, bias in history]
 Biases = [bias for epoch, cost, weight, bias in history] 
 
-#plt.plot(Epochs, Costs)
-#plt.xlabel("Epochs")
-#plt.ylabel("Training costs")
-#plt.title("Learning Curve")
-#plt.show()
+plt.plot(Epochs, Costs)
+plt.xlabel("Epochs")
+plt.ylabel("Training costs")
+plt.title("Learning Curve")
+plt.show()
